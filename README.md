@@ -54,7 +54,7 @@ Et y accéder dans votre navigateur à l'addresse donné par le programme (dont 
 
 Page d'acceuil vous indiquant de vous connecter si vous ne l'êtes pas, autrement il vous redirige vers `/players`.
 
-## `/singup`, `/login`, `logout`
+## `/singup`, `/login`, `/logout`
 
 Pages permettant de vous créer un compte, de vous connecter et de vous déconnecter.
 
