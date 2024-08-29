@@ -90,14 +90,20 @@ def teams():
 
 @app.route("/team/<int:team_id>")
 def team_detail(team_id:int):
+    if not current_user.is_authenticated:
+        return "Log in first."
     return render_template("team_detail.html", team=get_api("teams/"+str(team_id)))
 
 @app.route("/games")
 def games():
+    if not current_user.is_authenticated:
+        return "Log in first."
     return render_template("games.html", games=get_api("/games"))
 
 @app.route("/game/<int:game_id>")
 def game_detail(game_id:int):
+    if not current_user.is_authenticated:
+        return "Log in first."
     return render_template("game_detail.html", game=get_api("/games/"+str(game_id)))
 
 if __name__ == "__main__":
