@@ -4,6 +4,13 @@ Projet compensatoire B2 dans lequel il fallait trier et afficher les données de
 
 # Comment utiliser le projet
 
+Clonez et déplacez à la racine du projet :
+
+```console
+$ git clone git@github.com:geoffrey-diederichs/Ynov_Basket.git
+$ cd Ynov_Basket/
+```
+
 Vous pouvez lancer ce projet dans un environnement virtuel Python sous Linux à l'aide des commandes suivantes :
 
 ```console
@@ -20,7 +27,7 @@ $ venv\Scripts\Activate.ps1
 $ pip install -r requirements.txt
 ```
 
-Une fois le projet installé, veuillez sauvegarder votre clée pour l'API (que vous pouvez obtenir [ici](./https://www.balldontlie.io) en vous créant un compte) dans le fichier `key.txt` à la racine de ce projet. Par exemple :
+Veuillez maintenant sauvegarder votre clée pour l'API (que vous pouvez obtenir [ici](./https://www.balldontlie.io) en vous créant un compte) dans le fichier `key.txt` à la racine de ce projet. Par exemple :
 
 ```console
 $ pwd
