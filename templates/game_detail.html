@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game Details</title>
+    <style>
+        .team-box {
+            border: 1px solid #000;
+            padding: 10px;
+            margin: 10px;
+            width: 600px;
+            cursor: pointer;
+        }
+        .team-box a {
+            text-decoration: none;
+            color: inherit;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+          <a href="/logout">Logout</a>
+          <a href="/players">Players</a>
+          <a href="/teams">Teams</a>
+          <a href="/games">Games</a>
+        </ul>
+    </nav>
+    {% if game %}
+        <h1>Game on {{ game.date }}</h1>
+        
+        <div class="team-box">
+            <a href="{{ url_for('team_detail', team_id=game.home_team['id']) }}">
+                <h2><strong>Home Team:</strong> {{ game.home_team['full_name'] }} ({{ game.home_team['abbreviation'] }})</h2>
+                <p><strong>Score:</strong> {{ game.home_team_score }}</p>
+            </a>
+        </div>
+        
+        <div class="team-box">
+            <a href="{{ url_for('team_detail', team_id=game.visitor_team['id']) }}">
+                <h2><strong>Visitor Team:</strong> {{ game.visitor_team['full_name'] }} ({{ game.visitor_team['abbreviation'] }})</h2>
+                <p><strong>Score:</strong> {{ game.visitor_team_score }}</p>
+            </a>
+        </div>
+
+        <p><strong>Status:</strong> {{ game.status }}</p>
+        <p><strong>Period:</strong> {{ game.period }}</p>
+        <p><strong>Season:</strong> {{ game.season }}</p>
+        <p><strong>Postseason:</strong> {{ game.postseason }}</p>
+        
+    {% else %}
+        <p>Game not found.</p>
+    {% endif %}
+</body>
+</html>

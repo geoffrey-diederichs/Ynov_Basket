@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Players</title>
+    <style>
+        .player-box {
+            border: 1px solid #000;
+            padding: 10px;
+            margin: 10px;
+            width: 200px;
+            cursor: pointer;
+        }
+        .player-box a {
+            text-decoration: none;
+            color: inherit;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+          <a href="/logout">Logout</a>
+          <a href="/players">Players</a>
+          <a href="/teams">Teams</a>
+          <a href="/games">Games</a>
+        </ul>
+    </nav>
+    <h1>Players</h1>
+    <div>
+        {% for player in players %}
+            <div class="player-box">
+                <a href="{{ url_for('player_detail', player_id=player.id) }}">
+                    <h2>{{ player.first_name }} {{ player.last_name }}</h2>
+                    <p>{{ player.team['full_name'] }}</p>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

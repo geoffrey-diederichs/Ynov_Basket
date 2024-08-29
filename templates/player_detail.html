@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Player Details</title>
+    <style>
+        .team-box {
+            border: 1px solid #000;
+            padding: 10px;
+            margin: 10px;
+            width: 600px;
+            cursor: pointer;
+        }
+        .team-box a {
+            text-decoration: none;
+            color: inherit;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+          <a href="/logout">Logout</a>
+          <a href="/players">Players</a>
+          <a href="/teams">Teams</a>
+          <a href="/games">Games</a>
+        </ul>
+    </nav>
+    {% if player %}
+        <h1>{{ player.first_name }} {{ player.last_name }}</h1>
+        <div class="team-box">
+            <a href="{{ url_for('team_detail', team_id=player.team['id']) }}">
+                <h2><strong>Team:</strong> {{ player.team['full_name'] }} ({{ player.team['abbreviation'] }})</h2>
+            </a>
+        </div>
+        <p><strong>Position:</strong> {{ player.position }}</p>
+        <p><strong>Height:</strong> {{ player.height }}</p>
+        <p><strong>Weight:</strong> {{ player.weight }}</p>
+        <p><strong>Jersey Number:</strong> {{ player.jersey_number }}</p>
+        <p><strong>College:</strong> {{ player.college }}</p>
+        <p><strong>Country:</strong> {{ player.country }}</p>
+        <p><strong>Draft Year:</strong> {{ player.draft_year }}</p>
+        <p><strong>Draft Round:</strong> {{ player.draft_round }}</p>
+        <p><strong>Draft Number:</strong> {{ player.draft_number }}</p>
+        <p><strong>Conference:</strong> {{ player.team['conference'] }}</p>
+        <p><strong>Division:</strong> {{ player.team['division'] }}</p>
+        <p><strong>City:</strong> {{ player.team['city'] }}</p>
+    {% else %}
+        <p>Player not found.</p>
+    {% endif %}
+</body>
+</html>

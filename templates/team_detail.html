@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Team Details</title>
+</head>
+<body>
+    <nav>
+        <ul>
+          <a href="/logout">Logout</a>
+          <a href="/players">Players</a>
+          <a href="/teams">Teams</a>
+          <a href="/games">Games</a>
+        </ul>
+    </nav>
+    {% if team %}
+        <h1>{{ team.full_name }} ({{ team.abbreviation }})</h1>
+        <p><strong>City:</strong> {{ team.city }}</p>
+        <p><strong>Conference:</strong> {{ team.conference }}</p>
+        <p><strong>Division:</strong> {{ team.division }}</p>
+    {% else %}
+        <p>Team not found.</p>
+    {% endif %}
+</body>
+</html>

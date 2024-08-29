@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Games</title>
+    <style>
+        .game-box {
+            border: 1px solid #000;
+            padding: 10px;
+            margin: 10px;
+            width: 200px;
+            cursor: pointer;
+        }
+        .game-box a {
+            text-decoration: none;
+            color: inherit;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+          <a href="/logout">Logout</a>
+          <a href="/players">Players</a>
+          <a href="/teams">Teams</a>
+          <a href="/games">Games</a>
+        </ul>
+    </nav>
+    <h1>Games</h1>
+    <div>
+        {% for game in games %}
+            <div class="game-box">
+                <a href="{{ url_for('game_detail', game_id=game.id) }}">
+                    <h2>{{ game.home_team['abbreviation'] }} vs {{ game.visitor_team['abbreviation'] }}</h2>
+                    <p>{{ game.date }}</p>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
